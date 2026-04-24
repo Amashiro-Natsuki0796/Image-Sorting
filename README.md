@@ -2,7 +2,7 @@
 
 ## Project Introduction
 
-This is a Shell script toolkit for organizing image files that can rename images based on their last modification time and simultaneously update corresponding metadata time information.
+This is a cross-platform Shell script toolkit for organizing image files that can rename images based on their last modification time and simultaneously update corresponding metadata time information. The scripts support both Linux and macOS systems.
 
 ## Features
 
@@ -30,7 +30,7 @@ This is a Shell script toolkit for organizing image files that can rename images
 
 ### Preparation
 
-1. Place images to be processed into the `test` directory
+1. Place images to be processed into the `WorkDir` directory
 2. Ensure appropriate script execution permissions
 3. Ensure output directory exists
 
@@ -49,6 +49,9 @@ This is a Shell script toolkit for organizing image files that can rename images
 If using the JPG/PNG/JPEG processing script, install exiftool first:
 
 ```bash
+# macOS systems
+brew install exiftool
+
 # Ubuntu/Debian systems
 sudo apt install libimage-exiftool-perl
 
@@ -80,10 +83,13 @@ All images will be renamed to the following format:
 
 ## Notes
 
-- Script defaults to processing files in `test` directory, can be modified as needed
+- Script defaults to processing files in `WorkDir` directory, can be modified as needed
 - Recommend backing up important files before processing
 - Script automatically handles filename conflicts
 - JPG/PNG/JPEG script modifies EXIF metadata, this operation is irreversible
+- Cross-platform compatibility: scripts work on both Linux and macOS systems
+- Error handling: if EXIF processing fails for individual files, the script continues processing other files
+- On macOS, ensure you have proper permissions to modify files in the target directory
 
 ## Application Scenarios
 
